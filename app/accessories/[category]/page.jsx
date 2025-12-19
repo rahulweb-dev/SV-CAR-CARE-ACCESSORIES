@@ -16,6 +16,13 @@ const categoryTitles = {
   'screen-guards': 'Car Screen Guards',
   'trunk-mats': 'Car Trunk Mats',
   'windshield-covers': 'Car Windshield Covers',
+  'android-stereo': 'Android Stereo',
+  'car-speakers': 'Car Speakers',
+  'subwoofer-amplifier': 'Subwoofer Amplifier',
+  'rear-seat-entertainment': 'Rear Seat Entertainment',
+  'ambient-lighting': 'Ambient Lighting',
+  'dash-camera': 'Dash Camera'
+
 };
 
 export default function AccessoriesCategoryPage() {

@@ -37,10 +37,27 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-          {/* LOGO */}
-          <Link href="/" className="text-2xl font-extrabold text-black">
-            SV<span className="text-red-600">Accessories</span>
+          <Link
+            href="/"
+            className="flex items-center gap-2 group"
+            aria-label="SV Car Care Accessories"
+          >
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white font-bold">
+              SV
+            </div>
+
+            <div className="leading-none">
+              <p className="text-xl font-extrabold text-red-600 group-hover:text-red-600 transition">
+                CarCare
+              </p>
+              <p className="text-xs tracking-[0.3em] text-gray-500">
+                ACCESSORIES
+              </p>
+            </div>
           </Link>
+
+
+
 
           {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-black">
@@ -105,7 +122,7 @@ export default function Navbar() {
           <MobileLink href="/" setOpen={setOpen}>Home</MobileLink>
           <MobileLink href="/accessories" setOpen={setOpen}>Accessories</MobileLink>
           <MobileLink href="/car-care" setOpen={setOpen}>Car Care & Styling</MobileLink>
-         
+
           <MobileLink href="/gallery" setOpen={setOpen}>Gallery</MobileLink>
           <MobileLink href="/contact" setOpen={setOpen}>Contact</MobileLink>
 

@@ -17,9 +17,23 @@ export default function Footer() {
 
         {/* BRAND */}
         <div>
-          <h2 className="text-2xl font-extrabold">
-            SV<span className="text-red-600">Accessories</span>
-          </h2>
+
+
+          <div className="flex items-center gap-3 group select-none">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black font-extrabold text-sm">
+              SV
+            </div>
+
+            <div className="leading-tight">
+              <p className="text-xl font-extrabold text-red-600 group-hover:text-red-600 transition">
+                CarCare
+              </p>
+              <p className="text-[11px] tracking-[0.3em] text-gray-500 uppercase">
+                Accessories
+              </p>
+            </div>
+          </div>
+
           <p className="text-gray-400 mt-4 text-sm leading-relaxed">
             Premium car accessories, car care, and styling solutions.
             Quality products, expert installation, and trusted service.

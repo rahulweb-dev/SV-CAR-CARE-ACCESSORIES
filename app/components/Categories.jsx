@@ -14,12 +14,46 @@ const exteriorInterior = [
 
 const careStyling = [
   { title: 'Car Perfumes', img: '/assests/areon_perfume.webp', link: '' },
-  { title: 'Car Tissue Box', img: '/assests/car_tissue_box.webp', link: ''  },
-  { title: 'Car Cushion', img: '/assests/Car_Cushions.webp', link: ''  },
-  { title: 'Car Armrest', img: '/assests/Car_Arm_Rest.webp' , link: '' },
-  { title: 'Gear Knob Cover', img: '/assests/Gear_Knob_Cover.webp', link: ''  },
-  { title: 'Seat Gap Fillers', img: '/assests/Seat_Gap_Fillers.webp', link: ''  },
+  { title: 'Car Tissue Box', img: '/assests/car_tissue_box.webp', link: '' },
+  { title: 'Car Cushion', img: '/assests/Car_Cushions.webp', link: '' },
+  { title: 'Car Armrest', img: '/assests/Car_Arm_Rest.webp', link: '' },
+  { title: 'Gear Knob Cover', img: '/assests/Gear_Knob_Cover.webp', link: '' },
+  { title: 'Seat Gap Fillers', img: '/assests/Seat_Gap_Fillers.webp', link: '' },
 ];
+
+const entertainment = [
+  {
+    title: 'Android Car Stereo',
+    img: '/assests/Android-Car-Stereo.webp',
+    link: '/accessories/android-stereo',
+  },
+  {
+    title: 'Car Speakers',
+    img: '/assests/Car-Speakers.webp',
+    link: '/accessories/car-speakers',
+  },
+  {
+    title: 'Subwoofer & Amplifier',
+    img: '/assests/Subwoofer-&-Amplifier.webp',
+    link: '/accessories/subwoofer-amplifier',
+  },
+  {
+    title: 'Rear Seat Entertainment',
+    img: '/assests/Rear-Seat-Entertainment.webp',
+    link: '/accessories/rear-seat-entertainment',
+  },
+  {
+    title: 'Ambient LED Lights',
+    img: '/assests/Ambient-LED-Lights.jpg',
+    link: '/accessories/ambient-lighting',
+  },
+  {
+    title: 'Dash Camera',
+    img: '/assests/Dash-Camera.webp',
+    link: '/accessories/dash-camera',
+  },
+];
+
 
 export default function ShopByCategory() {
   return (
@@ -44,6 +78,12 @@ export default function ShopByCategory() {
         banner="/assests/car_care.webp"
         label="Car Care & Styling"
         data={careStyling}
+        reverse
+      />
+      <CategoryBlock
+        banner="/assests/Driving_Into_The_Future_Featured.webp"
+        label="Entertainment"
+        data={entertainment}
         reverse
       />
     </section>
