@@ -1,11 +1,14 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import {
   FaPhoneAlt,
   FaEnvelope,
   FaWhatsapp,
   FaMapMarkerAlt,
+  FaUser,
+  FaPen,
 } from 'react-icons/fa';
 
 export default function ContactPage() {
@@ -17,9 +20,8 @@ export default function ContactPage() {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,46 +50,33 @@ export default function ContactPage() {
 
         {/* HEADER */}
         <div className="text-center mb-20">
-          <h1 className="text-4xl font-extrabold mb-4">Contact Us</h1>
-          <p className="text-gray-400">Home / Contact</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Contact <span className="text-red-500">Us</span>
+          </h1>
+          <p className="text-gray-400">
+            Let’s talk about your car care & accessories needs
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
           {/* FORM */}
-          <div className="bg-[#111] rounded-3xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold mb-2">Get In Touch</h3>
-            <p className="text-gray-400 mb-6">
-              Fill the form below and we’ll get back to you shortly.
+          <div className="bg-linear-to-br from-white to-white rounded-3xl p-10 shadow-2xl border border-gray-800">
+            <h3 className="text-2xl font-bold mb-2">Send Us a Message</h3>
+            <p className="text-gray-400 mb-8">
+              Our team will respond within 24 hours.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                placeholder="Your Name"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                placeholder="Email Address"
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                placeholder="Subject"
-                name="subject"
-                value={form.subject}
-                onChange={handleChange}
-              />
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <Input icon={<FaUser />} placeholder="Your Name" name="name" value={form.name} onChange={handleChange} required />
+              <Input icon={<FaEnvelope />} placeholder="Email Address" name="email" type="email" value={form.email} onChange={handleChange} required />
+              <Input icon={<FaPen />} placeholder="Subject" name="subject" value={form.subject} onChange={handleChange} />
+
               <textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="Write your message..."
                 rows="4"
-                className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-white"
+                className="w-full bg-gray-300 border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500"
                 value={form.message}
                 onChange={handleChange}
                 required
@@ -96,58 +85,66 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-4 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+                className="w-full py-3 rounded-full bg-red-600 hover:bg-red-700 transition font-semibold text-white"
               >
-                {loading ? 'Sending...' : 'Send Now'}
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
 
           {/* CONTACT INFO */}
           <div className="space-y-8">
-            <p className="text-gray-400">
-              Feel free to contact us for car accessories, car care, or styling services.
-              Our team is always ready to help you.
+            <p className="text-gray-400 text-lg">
+              Visit our store or reach out instantly via call or WhatsApp.
             </p>
 
-            <Info icon={<FaPhoneAlt />} title="Phone Number" value="+91 99999 99999" />
-            <Info icon={<FaEnvelope />} title="Email Address" value="info@svaccessories.com" />
+            <Info icon={<FaPhoneAlt />} title="Call Us" value="+91 99999 99999" />
+            <Info icon={<FaEnvelope />} title="Email" value="info@svaccessories.com" />
             <Info icon={<FaWhatsapp />} title="WhatsApp" value="+91 99999 99999" />
             <Info
               icon={<FaMapMarkerAlt />}
-              title="Our Office"
+              title="Location"
               value="Hyderabad, Telangana, India"
             />
 
             {/* MAP */}
             <div className="rounded-2xl overflow-hidden border border-gray-700">
               <iframe
-                src="https://www.google.com/maps?q=Hyderabad&output=embed"
-                className="w-full h-60"
+                title="SV Car Care Accessories Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.431973!2d78.544512!3d17.472843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1dfac8396fcc8b3e!2sSV%20CAR%20CARE%20ACCESSORIES!5e0!3m2!1sen!2sin!4v1734584000000"
+                className="w-full h-64 border-0"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
               />
             </div>
+
+
           </div>
         </div>
 
-        {/* CTA BANNER */}
+        {/* CTA */}
         <div className="mt-24 relative rounded-3xl overflow-hidden">
-          <div className="absolute inset-0 bg-black/70" />
-          <img
-            src="/assests/contact-banner.webp"
-            alt="CTA"
-            className="w-full h-72 object-cover"
-          />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <p className="text-gray-300 mb-2">Hire Us Now</p>
+          <div className="absolute inset-0  z-10" />
+          <div className="relative w-full h-72">
+            <Image
+              src="/assests/hero_banner.webp"
+              alt="Contact CTA"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
-              We Are Always Ready To Help You
+              Need Instant Assistance?
             </h2>
             <a
               href="https://wa.me/919999999999"
-              className="px-6 py-3 rounded-full bg-white text-black font-semibold"
+              className="px-8 py-3 rounded-full bg-green-500 hover:bg-green-600 font-semibold"
             >
-              Get Started
+              Chat on WhatsApp
             </a>
           </div>
         </div>
@@ -157,21 +154,24 @@ export default function ContactPage() {
   );
 }
 
-/* ---------- Small Components ---------- */
+/* ---------- COMPONENTS ---------- */
 
-function Input(props) {
+function Input({ icon, ...props }) {
   return (
-    <input
-      {...props}
-      className="w-full bg-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-white"
-    />
+    <div className="flex items-center bg-gray-300 border border-gray-700 rounded-xl px-4">
+      <span className="text-gray-400 mr-3">{icon}</span>
+      <input
+        {...props}
+        className="w-full bg-transparent py-3 text-sm focus:outline-none"
+      />
+    </div>
   );
 }
 
 function Info({ icon, title, value }) {
   return (
-    <div className="flex gap-4 items-start">
-      <div className="text-xl text-white mt-1">{icon}</div>
+    <div className="flex gap-4 items-start bg-white p-4 rounded-xl border border-gray-800">
+      <div className="text-xl text-red-500">{icon}</div>
       <div>
         <p className="font-semibold">{title}</p>
         <p className="text-gray-400 text-sm">{value}</p>
