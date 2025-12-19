@@ -100,7 +100,7 @@ export default function Home() {
   return (
     <div>
       <Banner sliders={sliders} />
-      <CategoryBar />
+      {/* <CategoryBar /> */}
       <ShopByCategory />
       <WhyChooseUs />
       <Testimonials />
